@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengajuan Kode Supplier</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark">KS</span> Logbook Kode Supplier</div>
+    <nav class="nav-tabs">
+      <a href="index.html" class="active">Ajukan Kode Supplier</a>
+      <a href="tracking.html">Tracking &amp; Kode Supplier</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Pengajuan Kode Supplier</h1>
+    <p>Formulir pengajuan pembuatan kode supplier/vendor baru. Data wajib memakai huruf KAPITAL. Unggah berkas dalam format PDF/JPG/PNG.</p>
+  </div>
+
+  <div class="card">
+    <form id="submitForm">
+      <div class="form-grid">
+
+        <div class="field required">
+          <label for="cabang">Cabang</label>
+          <select id="cabang" required>
+            <option value="" disabled selected>Pilih kode cabang</option>
+            <option value="HHO">HHO — Head Office</option>
+            <option value="MML">MML — Main Dealer</option>
+            <option value="__custom">Kode cabang lain (3 huruf)…</option>
+          </select>
+          <input type="text" id="cabangCustom" maxlength="3" placeholder="Contoh: DXX" style="display:none; text-transform:uppercase;">
+        </div>
+
+        <div class="field required">
+          <label for="namaVendor">Nama Vendor Sesuai KTP/NPWP</label>
+          <input type="text" id="namaVendor" placeholder="NAMA VENDOR" required>
+        </div>
+
+        <div class="field required">
+          <label for="noKtpNpwp">Nomor NIK KTP / No. NPWP Vendor</label>
+          <input type="text" id="noKtpNpwp" placeholder="NOMOR NIK / NPWP" required>
+        </div>
+
+        <div class="field">
+          <label for="noNpwpPribadi">Nomor NPWP Vendor Orang Pribadi (jika ada)</label>
+          <input type="text" id="noNpwpPribadi" placeholder="NOMOR NPWP PRIBADI (opsional)">
+        </div>
+
+        <div class="field required">
+          <label for="namaBank">Nama Bank</label>
+          <input type="text" id="namaBank" placeholder="NAMA BANK" required>
+        </div>
+
+        <div class="field required">
+          <label for="noRekening">No. Rekening</label>
+          <input type="text" id="noRekening" placeholder="HANYA ANGKA" inputmode="numeric" required>
+        </div>
+
+        <div class="field required">
+          <label for="atasNama">Atas Nama Rekening</label>
+          <input type="text" id="atasNama" placeholder="ATAS NAMA" required>
+        </div>
+
+        <div class="field required">
+          <label for="noTelp">No. Telp Vendor / PIC / Cabang</label>
+          <input type="tel" id="noTelp" placeholder="08XXXXXXXXXX" required>
+        </div>
+
+        <div class="field required">
+          <label for="namaPic">Nama PIC yang Mengajukan Kode Supplier</label>
+          <input type="text" id="namaPic" placeholder="NAMA LENGKAP" required>
+        </div>
+
+        <div class="field full required">
+          <label for="alamat">Alamat Lengkap Sesuai Identitas Vendor</label>
+          <textarea id="alamat" rows="3" placeholder="ALAMAT LENGKAP" required></textarea>
+        </div>
+
+        <div class="field full required">
+          <label>Upload KTP Perorangan / NPWP Badan</label>
+          <label class="dropzone" id="dropzoneKtp">
+            <input type="file" id="fileKtpNpwp" accept="application/pdf,image/*">
+            <div class="dz-icon">📄</div>
+            <div class="dz-text" id="dzTextKtp"><strong>Klik untuk pilih file</strong> atau seret ke sini</div>
+          </label>
+        </div>
+
+        <div class="field full">
+          <label>Upload NPWP Perorangan (jika ada)</label>
+          <label class="dropzone" id="dropzoneNpwp">
+            <input type="file" id="fileNpwpPribadi" accept="application/pdf,image/*">
+            <div class="dz-icon">📄</div>
+            <div class="dz-text" id="dzTextNpwp"><strong>Klik untuk pilih file</strong> (opsional)</div>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="submitBtn">Kirim Pengajuan</button>
+        <span class="status-msg" id="statusMsg"></span>
+      </div>
+    </form>
+  </div>
+
+  <footer class="foot">Data tersimpan otomatis ke Google Sheets &amp; berkas ke Google Drive.</footer>
+</div>
+
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

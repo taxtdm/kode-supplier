@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking Kode Supplier</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark">KS</span> Logbook Kode Supplier</div>
+    <nav class="nav-tabs">
+      <a href="index.html">Ajukan Kode Supplier</a>
+      <a href="tracking.html" class="active">Tracking &amp; Kode Supplier</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Tracking Pengajuan Kode Supplier</h1>
+    <p>Pantau seluruh pengajuan vendor, lalu terbitkan Kode Supplier untuk pengajuan yang sudah lengkap.</p>
+  </div>
+
+  <div class="stat-row" id="statRow">
+    <div class="stat-card"><div class="num" id="statTotal">–</div><div class="label">Total Pengajuan</div></div>
+    <div class="stat-card"><div class="num" id="statPending">–</div><div class="label">Menunggu Kode</div></div>
+    <div class="stat-card"><div class="num" id="statDone">–</div><div class="label">Sudah Ada Kode</div></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-box">
+      <span>🔎</span>
+      <input type="text" id="searchInput" placeholder="Cari cabang, vendor, atau PIC…">
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button data-filter="all" class="active">Semua</button>
+      <button data-filter="Menunggu Kode">Menunggu Kode</button>
+      <button data-filter="Sudah Ada Kode">Sudah Ada Kode</button>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="refreshBtn">↻ Muat Ulang</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cabang</th>
+          <th>Nama Vendor</th>
+          <th>No. KTP/NPWP</th>
+          <th>PIC Pengaju</th>
+          <th>Berkas</th>
+          <th>Status</th>
+          <th>Kode Supplier</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="8" class="empty-state">Memuat data…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="foot">Data bersumber langsung dari Google Sheets.</footer>
+</div>
+
+<!-- Modal terbitkan kode -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3>Terbitkan Kode Supplier</h3>
+    <p class="sub" id="modalSub">Cabang — Nama Vendor</p>
+
+    <div class="field" style="margin-bottom:14px;">
+      <label>No. Urut</label>
+      <input type="text" id="modalNoUrut" placeholder="Contoh: 001">
+    </div>
+
+    <div class="field" style="margin-bottom:14px;">
+      <label>Kode Supplier</label>
+      <input type="text" id="modalKodeSupplier" placeholder="Contoh: HHO-001">
+      <div class="hint">Saran otomatis dari Cabang + No. Urut, boleh diubah manual.</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost btn-sm" id="modalCancel">Batal</button>
+      <button class="btn btn-primary btn-sm" id="modalSubmit">Simpan</button>
+    </div>
+    <div class="status-msg" id="modalMsg" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<script src="assets/config.js"></script>
+<script src="assets/tracking.js"></script>
+</body>
+</html>
